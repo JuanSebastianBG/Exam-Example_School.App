@@ -1,18 +1,18 @@
-drop database if exists school;
-create database school;
-use school;
+DROP DATABASE IF EXISTS school;
+CREATE DATABASE school;
+USE school;
 
-create table estudiantes(
-    nro_id int auto_increment primary key,
-    nombres varchar(50) not null,
-    apellidos varchar(50) not null,
-    direccion varchar(75) not null
+CREATE TABLE estudiantes(
+    `nro_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `nombres` VARCHAR(50) NOT NULL,
+    `apellidos` VARCHAR(50) NOT NULL,
+    `direccion` VARCHAR(75) NOT NULL
 )
-create table inscripcion(
-    nro_inscripcion int auto_increment primary key,
-    codigo int not null,
-    nro_id int not null,
-    periodo varchar(12) not null
+CREATE TABLE inscripciones(
+    nro_inscripcion INT auto_increment PRIMARY KEY,
+    codigo INT NOT NULL,
+    nro_id INT NOT NULL,
+    periodo VARCHAR(12) NOT NULL
 )
 
 
@@ -22,5 +22,5 @@ create table inscripcion(
 
 
 
-alter table inscripcion add constraint fk_nroId_estudiantes foreign key (nro_id) references estudiantes(nro_id);
-alter table inscripcion add constraint fk_codigo_asignaturas foreign key (cofigo) references asignaturas(codigo);
+ALTER TABLE inscripcion ADD CONSTRAINT fk_nroId_estudiantes FOREIGN KEY (nro_id) REFERENCES estudiantes(nro_id);
+ALTER TABLE inscripcion ADD CONSTRAINT fk_codigo_asignaturas FOREIGN KEY (cofigo) REFERENCES asignaturas(codigo);
